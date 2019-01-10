@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>亮哥</title>
+  <style>
+#btn{margin-left:30px;width:100px; height:30px; outline:none;border-radius:13px; border:#FFF; background:#666;font-size:16px; color:rgba(249,248,248,1.00); }
+#btn:hover{background:#ec6941}
+#row,#col{width:50px;}
+table{ border-collapse: collapse}
+td{padding:2px,5px;width:50px;text-align:center;}
+
+</style>
+ </head>
+ 
+ <body>
+  个数：<input type="number" value=14 id="col"/>
+  几组：<input type="number" value=8 id="row"/>
+  &nbsp;<button id="btn" onclick="class1()" >生成随机数</button> <br><br>
+  <div id="view">
+	<table border="1" id ="app" >
+		
+    </table>
+</div>
+ </body>
+ <script>
+
+ function class1(){
+	 document.getElementById("app").innerHTML="";
+ var col=Number(document.getElementById("col").value);
+ var row=Number(document.getElementById("row").value);
+ //console.log(col+"-"+row);
+
+ var result=[];
+ var arr=[];
+for(var j = 0; j <row; j++){
+ for ( var i = 0; i <col; i++){
+  var a1=Math.floor(Math.random()*100)/(-100);
+  if(a1!=0){
+	 	  arr.push(a1);
+	  }else{i--}
+ }
+ var arr1=arr.sort();
+  
+  result[j]=arr1;
+  arr=[];
+  //console.log(result[j]);
+
+  }
+  
+  //console.log("result"+result);
+
+   var html="";
+   var html1="";
+for(var k = 0; k <result[0].length; k++){
+for(var l = 0; l <result.length; l++){
+html1+="<td>"+result[l][k]+"</td>";
+}
+var k1=k+1;
+html+="<tr><td>"+k1+"</td>"+html1+"</tr>";
+html1="";
+
+ }
+document.getElementById("app").innerHTML=html;
+//console.log(html);
+}
+ </script>
+</html>
